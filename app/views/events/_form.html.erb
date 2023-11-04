@@ -1,0 +1,37 @@
+<%= form_with(model: event) do |f| %>
+
+  <%= render "shared/errors", object: event %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, autofocus: true %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, rows: 5 %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+
+  <%= f.label :starts_at %>
+  <%= f.datetime_select :starts_at, {ampm: true}, {class: "datetime"} %>
+
+  <%= f.label :capacity %>
+  <%= f.number_field :capacity %>
+
+  <%= f.label :image_file_name %>
+  <%= f.text_field :image_file_name %>
+
+  <div class="checkboxes">
+    <%# The collection_check_boxes method takes 4 parameters %>
+    <%# 1. Name of the attribute  %>
+    <%# 2. The collection of objects we want to display checkboxes for  %>
+    <%# 3. The value to use for the checkbox input (the id of a category) %>
+    <%# 4. The text displayed next to the checkbox %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+  </div>
+
+  <%= f.submit %>
+  
+<% end %>

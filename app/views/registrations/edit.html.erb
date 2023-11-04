@@ -1,0 +1,3 @@
+<h1><%= link_to @event.name, @event %> - regisztráció szerkesztése</h1>
+
+<%= render("form", locals: {event: @event, registration: @registration}) %>

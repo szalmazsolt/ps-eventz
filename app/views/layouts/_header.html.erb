@@ -1,0 +1,20 @@
+<header>
+  <nav>
+    <%= link_to image_tag("logo.png", title: "Events", alt: "Events logo"), root_path %>
+    <ul class="left">
+      <li><%= link_to "All Events", filtered_events_path(:all) %></li>
+      <li><%= link_to "Upcoming Events", filtered_events_path(:upcoming) %></li>
+      <li><%= link_to "Past Events", filtered_events_path(:past) %></li>
+      <li><%= link_to "Free Events", filtered_events_path(:free) %></li>
+    </ul>
+    <ul class="right">
+      <% if current_user %>
+        <li><%= link_to current_user.name, current_user %></li>
+        <li><%= link_to "Sign Out", session_path, data: { turbo_method: :delete }, class: "button" %></li>
+      <% else %>
+        <li><%= link_to "Sign In", new_session_path, class: "button" %></li>
+        <li><%= link_to "Sign Up", signup_path, class: "button" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,15 @@
+<h1>Registrations for <%= link_to @event.name, @event %></h1>
+<ul class="registrations">
+  <% @registrations.each do |r|  %>
+    <li>
+      <%= link_to r.user.name, r.user %> &bull; <%= r.how_heard %>
+
+      <% if correct_user?(r.user) %>
+        <p>
+          <%= link_to "Szerkeszt", edit_event_registration_path(@event, r), class: "btn btn-primary btn-sm"  %>
+          <%= link_to "Töröl", event_registration_path(@event, r), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger btn-sm"  %>
+        </p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,14 @@
+<% if object.errors.any? %>
+  <section class="errors">
+    <h2>Oops! The form could not be submitted</h2>
+    <h3>
+      Please correct the following 
+      <%= pluralize(object.errors.size, "error") %>:
+    </h3>
+    <ul>
+    <% object.errors.full_messages.each do |m| %>
+      <li><%= m %></li>
+    <% end %>
+    </ul>
+  </section>
+<% end %>

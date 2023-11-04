@@ -1,0 +1,9 @@
+<%= form_with(model: [locals[:event], locals[:registration]]) do |f| %>
+  <%= render('shared/errors', object: locals[:registration]) %>
+
+  <%= f.label :how_heard %>
+  <%# The second argument to select must be an array of options %>
+  <%= f.select :how_heard, Registration::HOW_HEARD_OPTIONS, prompt: "Pick one" %>
+
+  <%= f.submit "Register" %>
+<% end %>

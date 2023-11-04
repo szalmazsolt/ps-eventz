@@ -1,0 +1,19 @@
+<% if flash[:notice] %>
+  <div class="flash notice">
+    <%= flash[:notice]%>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="flash alert">
+    <%= flash[:alert]%>
+  </div>
+<% end %>
+
+<%# <% if !flash.empty? %>
+  <%# <% flash.each do |type, msg| %>
+    <%# <div class="flash <%= type.to_s %>
+      <%# <%= flash[type]%>
+    <%# </div> %>
+  <%# <% end %>
+<%# <% end %> 
