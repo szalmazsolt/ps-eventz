@@ -85,5 +85,3 @@ production:
   <<: *default
   database: eventz_production
   url: <%= ENV["DATABASE_URL"] %>
-  username: eventz
-  password: <%= ENV["EVENTZ_DATABASE_PASSWORD"] %>
